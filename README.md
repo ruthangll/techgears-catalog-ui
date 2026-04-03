@@ -10,7 +10,7 @@ Project praktikum Minggu 3 - Flexbox Mastery.
 - Modern Dark UI Theme
 
 ## 🔗 Live Preview
-[Cek di Expo Snack](link_snack_anda)
+[Cek di Expo Snack](https://snack.expo.dev/@ruthangelsitorus/techgears-catalog-ui)
 
 ## ▶️ Cara Running
 1. npm install
