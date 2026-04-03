@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Image, ScrollView } from 'react-native';
 import { router } from 'expo-router';
 
 const products = [
@@ -72,71 +72,71 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerText}>Angel Store</Text>
-
-      <View style={styles.row}>
-        <Pressable style={styles.card} onPress={() => goToDetail(products[0])}>
-          {products[0].discount && (
-            <View style={styles.badge}>
-              <Text style={styles.badgeText}>OFF</Text>
-            </View>
-          )}
-          <Image source={{ uri: products[0].image }} style={styles.image} />
-          <Text style={styles.cardTitle}>{products[0].title}</Text>
-          <Text style={styles.cardPrice}>{products[0].price}</Text>
-        </Pressable>
-
-        <Pressable style={styles.card} onPress={() => goToDetail(products[1])}>
-          <Image source={{ uri: products[1].image }} style={styles.image} />
-          <Text style={styles.cardTitle}>{products[1].title}</Text>
-          <Text style={styles.cardPrice}>{products[1].price}</Text>
-        </Pressable>
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.headerText}>TechGears Store</Text>
+        <Text style={styles.subText}>Katalog produk elektronik modern</Text>
       </View>
 
-      <View style={styles.row}>
-        <Pressable style={styles.card} onPress={() => goToDetail(products[2])}>
-          <Image source={{ uri: products[2].image }} style={styles.image} />
-          <Text style={styles.cardTitle}>{products[2].title}</Text>
-          <Text style={styles.cardPrice}>{products[2].price}</Text>
-        </Pressable>
+      <View style={styles.grid}>
+        {products.map((item) => (
+          <Pressable
+            key={item.id}
+            style={styles.card}
+            onPress={() => goToDetail(item)}
+          >
+            {item.discount && (
+              <View style={styles.badge}>
+                <Text style={styles.badgeText}>OFF</Text>
+              </View>
+            )}
 
-        <Pressable style={styles.card} onPress={() => goToDetail(products[3])}>
-          <Image source={{ uri: products[3].image }} style={styles.image} />
-          <Text style={styles.cardTitle}>{products[3].title}</Text>
-          <Text style={styles.cardPrice}>{products[3].price}</Text>
-        </Pressable>
+            <Image source={{ uri: item.image }} style={styles.image} />
+            <Text style={styles.cardTitle}>{item.title}</Text>
+            <Text style={styles.cardPrice}>{item.price}</Text>
+          </Pressable>
+        ))}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#111',
     padding: 16,
+    backgroundColor: '#0a0a96',
+    minHeight: '100%',
+  },
+  headerContainer: {
+    alignItems: 'center',
+    marginTop: 20,
+    marginBottom: 20,
   },
   headerText: {
     color: 'white',
     fontSize: 24,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginTop: 20,
-    marginBottom: 20,
   },
-  row: {
+  subText: {
+    color: '#ffffff',
+    fontSize: 14,
+    marginTop: 6,
+    textAlign: 'center',
+  },
+  grid: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginBottom: 16,
   },
   card: {
     width: '48%',
-    backgroundColor: '#2f2f2f',
+    backgroundColor: '#ffffff',
     borderRadius: 14,
     padding: 10,
     alignItems: 'center',
     position: 'relative',
+    marginBottom: 16,
   },
   image: {
     width: '100%',
@@ -145,14 +145,14 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   cardTitle: {
-    color: 'white',
-    fontSize: 16,
+    color: 'black',
+    fontSize: 15,
     fontWeight: 'bold',
     marginBottom: 4,
     textAlign: 'center',
   },
   cardPrice: {
-    color: '#ddd',
+    color: '#000000',
     fontSize: 14,
   },
   badge: {

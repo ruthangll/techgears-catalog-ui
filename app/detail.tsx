@@ -44,7 +44,7 @@ export default function DetailScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#111',
+    backgroundColor: '#1a38b0',
   },
   image: {
     width: '100%',
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
   price: {
     color: '#ffcc00',
     fontSize: 18,
+    fontWeight: '600',
     marginBottom: 16,
   },
   section: {
