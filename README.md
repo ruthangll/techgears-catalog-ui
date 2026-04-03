@@ -1,8 +1,13 @@
 # TechGears Catalog UI 📦
 Project praktikum Minggu 3 - Flexbox Mastery.
 
-## 📱 Preview
-![App Screen](home.jpeg)
+## 📸 Preview
+
+### Home Screen
+![Home Screen](home.jpeg)
+
+### Detail Screen
+![Detail Screen](detail.jpeg)
 
 ## ✨ Features
 - Responsive Grid Layout
